@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Űrlap adatok táblázata</h1>
+<h3>Table of form data!</h3>
+<table id="res">
+<tr>
+    <th>Project name</th>
+    <th>ph</th>
+    <th>thk</th>
+    <th>ka</th>
+    <th>humusz</th>
+    <th>p2o5</th>
+    <th>k2o</th>
+</tr>
+<tr>
+    <td colspan=7 style="border-bottom: 1px solid #000000;"></td>
+</tr>
+{% for project,param1,param2 in group %}     
+    <tr>
+        <td>{{ project.project }}</td>  
+        <td>{{ param1.ph }}</td>
+        <td>{{ param1.thk }}</td>
+        <td>{{ param1.ka }}</td>
+        <td>{{ param1.humusz }}</td> 
+        <td>{{ param2.p2o5 }}</td>
+        <td>{{ param2.k2o }}</td>
+    </tr>
+    {% endfor %}
+<tr>
+    <td colspan=7 style="border-bottom: 1px solid #000000;"></td>
+</tr>
+<tr>
+    <td colspan=5></td>
+    <td><a class="mybutton" href="{% url 'next_data'%}">New Data</a></td>
+    <td><a class="mybutton" href="{% url 'clear_data'%}">New Project</a></td>
+</tr>
+</table>
+{% endblock content %}
